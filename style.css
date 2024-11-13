@@ -1,0 +1,88 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0a0f1b, #0f1e2e);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Добавление анимационного фона для хакерского стиля */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(transparent, rgba(0, 255, 0, 0.05) 2px);
+    z-index: -1;
+    animation: gridMove 10s linear infinite;
+    opacity: 0.2;
+}
+
+/* Анимация движущегося фона */
+@keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100px, -100px); }
+}
+
+/* Стиль содержимого */
+.content {
+    text-align: center;
+    z-index: 1;
+}
+
+/* Оформление заголовка */
+.headline {
+    font-size: 26px;
+    font-weight: 600;
+    color: #00ff9d;
+    margin-bottom: 30px;
+}
+
+/* Стиль иконки Telegram */
+.telegram-logo {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+/* Кнопка с RGB эффектом */
+.download-btn {
+    background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff);
+    background-size: 300% 300%;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.5s ease;
+    animation: rgb-shift 3s infinite linear;
+    box-shadow: 0 4px 10px rgba(0, 255, 157, 0.3);
+}
+
+.download-btn:hover {
+    filter: brightness(1.2);
+}
+
+.download-btn:active {
+    filter: brightness(0.9);
+}
+
+/* Анимация RGB перелива */
+@keyframes rgb-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
